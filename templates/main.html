@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainPage</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css"
+      integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/common.css') }}" />
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <div class="intro_wrap">
+      <div class="real_wrap">
+        <div class="header">
+          <div class="aa">
+            <div class="with_title"><a href="/">LSTM알고리즘을 활용한</a></div>
+            <div id="titleFont">
+              <a href="/">
+                <br />
+                주가예측프로그램</a
+              >
+            </div>
+          </div>
+          <ul>
+            <li><a href="/">MainPage</a></li>
+            <li><a href="/project">SystemLearn</a></li>
+            <li><a href="/search">SearchData</a></li>
+            <li><a href="/predict">PredictData</a></li>
+          </ul>
+        </div>
+
+        <div class="explain">본 프로젝트는 주가 예측을 위해 LSTM알고리즘을 <br />활용한 딥러닝으로 구현됐습니다.</div>
+        <div class="btn">
+          <button type="button" class="made-btn1"><b>데이터 조회하기</b></button>
+          <button type="button" class="made-btn2"><b>데이터 예측하기</b></button>
+        </div>
+
+        <!-- <div class="intro-participants">
+          지도교수 : 박은주 <br />
+          학부생 : 서민규, 황재완, 황진성<br />
+          ..어쩌구 저쩌구
+        </div> -->
+      </div>
+    </div>
+  </body>
+  <script>
+    $(".made-btn1").click(function () {
+      location.href = "/search";
+    });
+    $(".made-btn2").click(function () {
+      location.href = "/predict";
+    });
+  </script>
+</html>

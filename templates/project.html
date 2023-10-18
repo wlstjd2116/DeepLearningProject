@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MainPage</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css"
+      integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/common.css') }}" />
+    <link rel="stylesheet" href="../static/css/common.css" />
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <div class="intro_wrap">
+      <div class="real_wrap">
+        <div class="header">
+          <div class="aa">
+            <div class="with_title"><a href="/">LSTM알고리즘을 활용한</a></div>
+            <div id="titleFont">
+              <a href="/">
+                <br />
+                주가예측프로그램</a
+              >
+            </div>
+          </div>
+          <ul>
+            <li><a href="/">MainPage</a></li>
+            <li><a href="/project">SystemLearn</a></li>
+            <li><a href="/search">SearchData</a></li>
+            <li><a href="/predict">PredictData</a></li>
+          </ul>
+        </div>
+
+        <div class="explain-pj">LSTM 알고리즘을 활용한 주가 예측 프로그램이란?</div>
+        <div class="explain-pj-box">
+        <div class="explain-pj-in"><h4><b>본 프로젝트는 주가 예측을 위해 딥러닝으로 구현됐습니다.</b></h4></br>
+
+        </br>
+        <div class="for-part">
+            <div class="ex-left">
+                <b>딥러닝에 사용된 데이터 종류</b></br></br>
+                <ul>
+                  <li style="text-align: left; margin-left: 15%;">여러 변수에 의한 주가 데이터 예측</li>
+                  <li style="text-align: left; margin-left: 15%;">'Petronet'에서 제공하는 국제유가 데이터 [Brent, WTI, Dubai, Oman]</li>
+                  <li style="text-align: left; margin-left: 15%;">'Investing.com'의 미국 달러/원 환율 데이터 [시가, 종가, 고가, 저가]</li>
+                  <li style="text-align: left; margin-left: 15%;">질병관리청에서 제공하는 코로나 바이러스 확진자 데이터</li>
+                </ul>
+            </br>
+            </div>
+            <div class="ex-right">
+              <b>데이터 수집 기간</b></br><br>
+              2021년 6월 25일 ~ 2022년 7월 15일</br>
+              (일 단위로 수집, 각 특성마다 261개의 데이터를 딥러닝에 활용)</br>
+            </div>
+        </div>
+</br>
+<b>해당 시스템을 통해 사용자는 예측하고자 하는 생필품의 물가를 예측할 수 있습니다.</b></br></div>
+      </div>
+    </div>
+  </body>
+</html>

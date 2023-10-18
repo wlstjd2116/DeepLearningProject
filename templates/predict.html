@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css"
+      integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../static/css/common.css" />
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <div class="intro_wrap">
+      <div class="real_wrap">
+        <div class="header">
+          <div class="aa">
+            <div class="with_title"><a href="/">LSTM알고리즘을 활용한</a></div>
+            <div id="titleFont">
+              <a href="/">
+                <br />
+                주가예측프로그램</a
+              >
+            </div>
+          </div>
+          <ul>
+            <li><a href="/">MainPage</a></li>
+            <li><a href="/project">SystemLearn</a></li>
+            <li><a href="/search">SearchData</a></li>
+            <li><a href="/predict">PredictData</a></li>
+          </ul>
+        </div>
+		<form action="/predict" methods="GET">
+			<div class="option-selectbox">
+				<div class="option-selection">
+					
+				<div class="predict-left">
+					<div class="left-title">
+						환율
+						<hr>국제유가
+					</div>
+				</div>
+				<div class="predict-right">
+					<input type="checkbox" id="er_open"   name="ck" value="er_open" {{ "checked" if er_open else "" }}> &nbsp; 
+					<label for="er_open">시가</label>
+					<input type="checkbox"  id="er_end" name="ck" value="er_end" {{ "checked" if er_end else "" }}> &nbsp; 
+					<label for="er_end">종가</label>
+					<input type="checkbox"  id="er_high"  name="ck" value="er_high" {{ "checked" if er_high else "" }}> &nbsp; 
+					<label for="er_high">고가</label>
+					<input type="checkbox"  id="er_low" name="ck" value="er_low" {{ "checked" if er_low else "" }}> &nbsp;   
+					<label for="er_low">저가</label>
+					<input type="checkbox" id="consumer"   name="ck" value="consumer" {{ "checked" if er_open else "" }}> &nbsp; 
+					<label for="consumer">CPI</label>
+						<hr>
+						<input type="checkbox"  id="dubai" name="ck" value="oil_dubai" {{ "checked" if oil_dubai else "" }}> &nbsp; 
+						<label for="dubai">Dubai
+						</label>
+						<input type="checkbox"  id="Brent"  name="ck" valuy="oil_brent" {{ "checked" if oil_brent else "" }}> &nbsp; 
+						<label for="Brent">Brent
+						</label><input type="checkbox"  id="Wti"  name="ck" value="oil_WTI" {{ "checked" if oil_WTI else "" }}> &nbsp; 
+						<label for="Wti">WTI
+						</label>
+						<input type="checkbox"  id="oman"  name="ck" value="oil_oman" {{ "checked" if oil_oman else "" }}> &nbsp; 
+						<label for="oman">
+							oman
+						</label>
+						<input type="checkbox"  id="corona"  name="ck" value="patients" {{ "checked" if patients else "" }}>
+						<label for="corona">
+						확진자 수
+						</label>
+				</div> <!-- right end -->
+				</div> <!-- option-selection end -->
+			</div> <!-- option-selectbox -->
+			<div class="predict-wrap">
+				<div class="predict-select">
+					<select name="predict_good" class="form-control">
+						<option value="None">None</option>
+						<option value="SAMSUNG">SAMSUNG</option>
+						<option value="HYUNDAI">HYUNDAI</option>
+						<option value="SK">SK</option>
+					  </select>
+					  <button class="btn-predict">조회</button>
+				</form>
+				</div><!-- left -->
+				<div class="show-predict">
+					<section>
+						{% if predict_good == None %}
+						   <h3 id='result_name' style="text-align: center">주가 예측 그래프 확인하기</h3>
+						{% else %}
+							<h3 id='result_name' style="text-align: center">'{{ predict_good }}' 주가 그래프 확인하기</h3>
+						{% endif %}
+			   
+			   <div class="chart" id="bargraph">
+				   <script>
+					   var graphs = {{plot | safe}};
+					   Plotly.plot('bargraph',graphs,{});
+				   </script>
+			   </div>
+				</section>
+				</div>
+			</div> <!-- predict-wrap-->
+      </div> <!-- real wrap -->
+    </div>
+  </body> 
+  <script>
+  </script>
+</html>

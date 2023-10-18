@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css"
+      integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../static/css/common.css" />
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+    <div class="intro_wrap">
+      <div class="real_wrap">
+        <div class="header">
+          <div class="aa">
+            <div class="with_title"><a href="/">LSTM알고리즘을 활용한</a></div>
+            <div id="titleFont">
+              <a href="/">
+                <br />
+                주가예측프로그램</a
+              >
+            </div>
+          </div>
+          <ul>
+            <li><a href="/">MainPage</a></li>
+            <li><a href="/project">SystemLearn</a></li>
+            <li><a href="/search">SearchData</a></li>
+            <li><a href="/predict">PredictData</a></li>
+          </ul>
+        </div>
+        <dd>
+          데이터 조회하기
+        </dd>
+        <form action="/search" methods="POST" class="form">
+        <div class="select-wrap">
+          <div class="left"> 
+            <select id="sel1" name="select_good" class="read-data">
+            <option value="none" hidden> Select Good</option>
+            <option value="SAMSUNG">SAMSUNG</option>
+            <option value="HYUNDAI">HYUNDAI</option>
+            <option value="SK">SK</option>
+          </select></div>
+          <div class="right"><button class="btn-search">조회</button></div>
+          </div> <!-- select wrap -->
+          <div class = "data-table">
+            {% if select_good == None %}
+
+            {% else %}
+              <h3 class="data-title">'{{ select_good }}' 물가 데이터 확인하기</h3>
+              
+            {% endif %}
+                {% if tables%}
+              {% for table in tables %}
+                    {{ table|safe }}
+              {% endfor %}
+            {% endif %}
+              </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  </body> 
+  <script>
+  </script>
+</html>
